@@ -1,1 +1,9 @@
-<h1>this is the show page</h1>
+<h1>Song Info</h1>
+<div>
+  <p>Artist: {{showVm.song.artist}}</p>
+  <p>Title: {{showVm.song.title}}</p>
+  <p>Genre: {{showVm.song.genre}}</p>
+  <p>Preview Song: {{showVm.song.audio_url}}</p>
+  <p>Album Artwork:</p>
+  <p><a data-ui-sref="radioShow({id: song.id})"><img data-ng-src="{{showVm.song.album_art}}"></a></p>
+</div>
