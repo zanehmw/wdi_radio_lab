@@ -1,5 +1,16 @@
 <h1>this is the index page</h1>
+
+<button data-ng-hide="newSong" data-ng-click="newSong = !newSong">Add New Song</button>
+<form data-ng-show="newSong" data-ng-submit="indexVm.create(); newSong = !newSong">
+  <input placeholder="Artist" data-ng-model="indexVm.newSong.artist" />
+  <input placeholder="Title" data-ng-model="indexVm.newSong.title" />
+  <input placeholder="Audio URL" data-ng-model="indexVm.newSong.audio_url" />
+  <input placeholder="Album Art" data-ng-model="indexVm.newSong.album_art" />
+  <input placeholder="Genre" data-ng-model="indexVm.newSong.genre" />
+  <button type="submit">Create</button>
+</form>
+
 <div data-ng-repeat="song in indexVm.songs">
   <p>{{song.title}}</p>
-  <p><a data-ui-sref="radioShow({id: song.id})"><img data-ng-src="{{song.album_art}}"></a></p>
+  <p><a data-ui-sref="songShow({id: song.id})"><img data-ng-src="{{song.album_art}}"></a></p>
 </div>

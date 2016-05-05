@@ -5,5 +5,19 @@
   <p>Genre: {{showVm.song.genre}}</p>
   <p>Preview Song: {{showVm.song.audio_url}}</p>
   <p>Album Artwork:</p>
-  <p><a data-ui-sref="radioShow({id: song.id})"><img data-ng-src="{{showVm.song.album_art}}"></a></p>
+  <p><img data-ng-src="{{showVm.song.album_art}}"></p>
 </div>
+<!-- <p><audio data-ng-src="{{showVm.song.audio_url}}"></audio></p> -->
+
+<button data-ng-hide="editSong" data-ng-click="editSong = !editSong">Edit Pic</button>
+<form data-ng-show="editSong">
+  <input placeholder="Artist" data-ng-model="showVm.song.artist" />
+  <input placeholder="Title" data-ng-model="showVm.song.title" />
+  <input placeholder="Audio URL" data-ng-model="showVm.song.audio_url" />
+  <input placeholder="Album Art" data-ng-model="showVm.song.album_art" />
+  <input placeholder="Genre" data-ng-model="showVm.song.genre" />
+
+  <button class="update" data-ng-click="showVm.update(); editSong = !editSong">Save</button>
+  <button class="cancel" data-ng-click="editSong = !editSong">Cancel</button>
+  <button class="delete" data-ui-sref="songIndex" data-ng-click="showVm.delete()">Delete</button>
+</form>
